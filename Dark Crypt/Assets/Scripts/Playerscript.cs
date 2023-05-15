@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +7,29 @@ public class Playerscript : MonoBehaviour
 {
     public float speed = 5;
     private CharacterController characterController;
+    private Animator animator;
+
+    private bool isMoving;
 
     private float horizontalMovement;
     private float verticalMovement;
     private Vector3 direction;
 
+    public float turnSmoothTime = 0.1f;
+    private float turnSmoothVelocity;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController= GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         MovementCheck();
+        AnimationCheck();
     }
 
     void MovementCheck()
@@ -32,7 +41,25 @@ public class Playerscript : MonoBehaviour
 
         if(direction.magnitude >= 0.1f ) 
         { 
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0,angle, 0);
+
             characterController.Move(direction * speed * Time.deltaTime);
+        }
+    }
+
+    private void AnimationCheck()
+    {
+        if(direction != Vector3.zero && !isMoving)
+        {
+            isMoving= true;
+            animator.SetBool("isRunning", isMoving);
+        }
+        else if (direction == Vector3.zero && isMoving)
+        {
+            isMoving = false;
+            animator.SetBool("isRunning", isMoving);
         }
     }
 }
