@@ -8,6 +8,9 @@ public class MapManager : MonoBehaviour
     public Texture2D[] maps;
     public GameObject wallPrefab;
 
+    public GameObject gemPrefab;
+    public GameObject zombiePrefab;
+
     private Texture2D selectedMap;
 
     public List<Vector3> openPositions = new List<Vector3>();
@@ -61,6 +64,16 @@ public class MapManager : MonoBehaviour
         {
             Instantiate(wallPrefab, new Vector3(x, 0, y), Quaternion.identity, transform);
         }
+    }
+
+    private void GenerateZombies()
+    {
+
+    }
+
+    private void GenerateGems()
+    {
+
     }
 
 }
