@@ -9,11 +9,16 @@ public class Playerscript : MonoBehaviour
     private CharacterController characterController;
     private Animator animator;
 
+    [SerializeField]
+    private Transform camtransform;
+
     private bool isMoving;
 
     private float horizontalMovement;
     private float verticalMovement;
     private Vector3 direction;
+    private Vector3 camForward;
+    private Vector3 camRight;
 
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
@@ -37,13 +42,26 @@ public class Playerscript : MonoBehaviour
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = Input.GetAxisRaw("Vertical");
 
+        //cam dir
+        camForward = camtransform.forward;
+        camRight = camtransform.right;
+
+        camForward.y = 0;
+        camRight.y = 0;
+
+        //relative cam dir
+        Vector3 forwardRelative = verticalMovement * camForward;
+        Vector3 rightRelative = horizontalMovement * camRight;
+
+        Vector3 movedir = forwardRelative + rightRelative;
+
         direction = new Vector3(horizontalMovement, 0, verticalMovement);
 
         if(direction.magnitude >= 0.1f ) 
         { 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0,angle, 0);
+            transform.rotation = Quaternion.Euler(movedir.x , 0, movedir.z);
 
             characterController.Move(direction * speed * Time.deltaTime);
         }
