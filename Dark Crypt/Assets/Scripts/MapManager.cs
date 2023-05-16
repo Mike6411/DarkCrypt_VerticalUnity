@@ -31,6 +31,7 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         GenerateNewMap();
+        GenerateGems();
     }
 
     public void GenerateNewMap()
@@ -73,7 +74,12 @@ public class MapManager : MonoBehaviour
 
     private void GenerateGems()
     {
-
+        for (int i = 0; i < 10; i++)
+        {
+            int index = Random.Range(0, openPositions.Count);
+            Instantiate(gemPrefab, openPositions[index], Quaternion.identity);
+            openPositions.RemoveAt(index);
+        }
     }
 
 }
