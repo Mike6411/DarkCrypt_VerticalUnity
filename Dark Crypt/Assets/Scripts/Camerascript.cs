@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Camerascript : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject target;
 
@@ -13,12 +14,19 @@ public class Camerascript : MonoBehaviour
     [SerializeField]
     private float cameraLerp;
 
+    Camera camera;
 
     float cameraMaxConstraint = 70f;
     float cameraMinConstraint = 30f;
 
     private float rotationX;
     private float rotationY;
+
+    private void Awake()
+    {
+        camera= GetComponent<Camera>();
+        camera = Camera.main;
+    }
 
     private void LateUpdate()
     {

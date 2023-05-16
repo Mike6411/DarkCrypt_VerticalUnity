@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -36,6 +37,30 @@ public class MapManager : MonoBehaviour
 
         selectedMap = maps[Random.Range(0, maps.Length)];
 
+        for (int x = 0; x < selectedMap.width; x++)
+        {
+            for (int y = 0; y < selectedMap.height; y++) 
+            {
+                GenerateTile(x, y);
+            }
+        }
+
+    }
+
+    private void GenerateTile (int x, int y)
+    {
+        Color pixelColor = selectedMap.GetPixel(x, y);
+
+        if(pixelColor.a == 0)
+        {
+            openPositions.Add(new Vector3(x, 0, y));
+            return;
+        }
+
+        if(pixelColor == wallColor)
+        {
+            Instantiate(wallPrefab, new Vector3(x, 0, y), Quaternion.identity, transform);
+        }
     }
 
 }

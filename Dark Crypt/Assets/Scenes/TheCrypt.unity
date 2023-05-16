@@ -412,9 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11792d4e643dcf04398a9b71d27edd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  targetDistance: 0
-  cameraLerp: 0
+  target: {fileID: 8974232953727709258}
+  targetDistance: 10
+  cameraLerp: 2
 --- !u!1001 &1997202989257308583
 PrefabInstance:
   m_ObjectHideFlags: 0
