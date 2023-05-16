@@ -27,7 +27,6 @@ public class Camerascript : MonoBehaviour
 
         rotationX = Mathf.Clamp(rotationX, cameraMinConstraint, cameraMaxConstraint);
 
-
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
 
         transform.position = Vector3.Lerp(transform.position, target.transform.position - transform.forward * targetDistance, cameraLerp * Time.deltaTime);
