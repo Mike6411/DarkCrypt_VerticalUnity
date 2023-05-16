@@ -17,7 +17,7 @@ public class Camerascript : MonoBehaviour
     Camera camera;
 
     float cameraMaxConstraint = 70f;
-    float cameraMinConstraint = 30f;
+    float cameraMinConstraint = 45f;
 
     private float rotationX;
     private float rotationY;

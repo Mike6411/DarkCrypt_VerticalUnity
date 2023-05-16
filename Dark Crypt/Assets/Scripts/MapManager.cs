@@ -74,7 +74,7 @@ public class MapManager : MonoBehaviour
 
     private void GenerateGems()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 12; i++)
         {
             int index = Random.Range(0, openPositions.Count);
             Instantiate(gemPrefab, openPositions[index], Quaternion.identity);
