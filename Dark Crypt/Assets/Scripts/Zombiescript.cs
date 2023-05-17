@@ -6,28 +6,26 @@ using UnityEngine.AI;
 public class Zombiescript : MonoBehaviour
 {
 
-    [SerializeField]
     private Vector3 randomPos;
-
-    [SerializeField]
     private GameObject player;
-
-    [SerializeField]
-    private NavMeshAgent agent;
 
     [SerializeField]
     private float detectionRange;
 
-    private bool isChasing;
-    private bool isRoaming;
+    [SerializeField]
     private AudioSource detectedFX;
 
+    private NavMeshAgent agent;
+    private bool isChasing;
+    private bool isRoaming;
 
     private void Start()
     {
         randomPos= transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        isChasing = false;
+        isRoaming = true;
     }
 
     private void Update()
@@ -36,11 +34,11 @@ public class Zombiescript : MonoBehaviour
         //Chase Check
         if(Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
         {
-            //Chase player
-
-        }else if (isChasing)
+            ChasePlayer();
+        }
+        else if (isChasing)
         {
-            //Break chase
+            WalkToRandomSpot();
         }
 
         if(isRoaming) 
@@ -69,5 +67,13 @@ public class Zombiescript : MonoBehaviour
     private void WalkToRandomSpot()
     {
         agent.speed = 0.75f;
+        randomPos = MapManager.instanceMapManager.GetRandomPos();
+
+        agent.SetDestination(randomPos);
+
+        isChasing= false;
+        isRoaming= true;
+
+        //trigger anims
     }
 }

@@ -46,10 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maps:
   - {fileID: 2800000, guid: 1db9620a446cdc04b95312ca4bc65db6, type: 3}
-  - {fileID: 2800000, guid: 89c0f5b5b30079849a75a0cee6b44eec, type: 3}
-  - {fileID: 2800000, guid: bb7eb6bf97ce1b74f8b4f3d4d04d64a5, type: 3}
-  - {fileID: 2800000, guid: 6d44d4bd863dab148afbccb19b94b048, type: 3}
   wallPrefab: {fileID: 4465368231617809181, guid: 4e96cbaa09b023a43ab52e1767e3279b, type: 3}
   gemPrefab: {fileID: 9033358257542166919, guid: d0e6d375f9067ce4a90dda6381484f4f, type: 3}
-  zombiePrefab: {fileID: 0}
+  zombiePrefab: {fileID: 4649952730653243904, guid: d1b5a9a0fdf0a3f47ac48d534ecc96d3, type: 3}
   openPositions: []

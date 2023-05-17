@@ -14,7 +14,7 @@ public class Camerascript : MonoBehaviour
     [SerializeField]
     private float cameraLerp;
 
-    Camera camera;
+    Camera mycamera;
 
     float cameraMaxConstraintX = 70f;
     float cameraMinConstraintX = 45f;
@@ -26,8 +26,8 @@ public class Camerascript : MonoBehaviour
 
     private void Awake()
     {
-        camera= GetComponent<Camera>();
-        camera = Camera.main;
+        mycamera= GetComponent<Camera>();
+        mycamera = Camera.main;
     }
 
     private void LateUpdate()

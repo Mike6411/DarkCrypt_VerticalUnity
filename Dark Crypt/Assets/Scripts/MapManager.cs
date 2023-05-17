@@ -32,6 +32,7 @@ public class MapManager : MonoBehaviour
     {
         GenerateNewMap();
         GenerateGems();
+        GenerateZombies();
     }
 
     public void GenerateNewMap()
@@ -69,7 +70,12 @@ public class MapManager : MonoBehaviour
 
     private void GenerateZombies()
     {
-
+        for (int i = 0; i < 4; i++)
+        {
+            int index = Random.Range(0, openPositions.Count);
+            Instantiate(zombiePrefab, openPositions[index], Quaternion.identity);
+            openPositions.RemoveAt(index);
+        }
     }
 
     private void GenerateGems()
@@ -80,6 +86,11 @@ public class MapManager : MonoBehaviour
             Instantiate(gemPrefab, openPositions[index], Quaternion.identity);
             openPositions.RemoveAt(index);
         }
+    }
+
+    public Vector3 GetRandomPos()
+    {
+        return openPositions[Random.Range(0, openPositions.Count)];
     }
 
 }
