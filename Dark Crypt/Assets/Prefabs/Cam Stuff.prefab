@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2007338, guid: d6a6378baf728479c897f88a892620af, type: 3}
+      propertyPath: orthographic size
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a6378baf728479c897f88a892620af, type: 3}
 --- !u!4 &6455394943213817131 stripped
@@ -156,15 +160,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2043858, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
       propertyPath: orthographic
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043858, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
+      propertyPath: field of view
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2043858, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
       propertyPath: near clip plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2043858, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
       propertyPath: orthographic size
-      value: 1.95
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2043858, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
       propertyPath: m_CullingMask.m_Bits
