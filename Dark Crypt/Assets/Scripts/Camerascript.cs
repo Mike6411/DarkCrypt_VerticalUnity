@@ -16,8 +16,10 @@ public class Camerascript : MonoBehaviour
 
     Camera camera;
 
-    float cameraMaxConstraint = 70f;
-    float cameraMinConstraint = 45f;
+    float cameraMaxConstraintX = 70f;
+    float cameraMinConstraintX = 45f;
+    float cameraMinConstraintY = -45f;
+    float cameraMaxConstraintY = 45f;
 
     private float rotationX;
     private float rotationY;
@@ -33,7 +35,8 @@ public class Camerascript : MonoBehaviour
         rotationX += Input.GetAxis("Mouse Y");
         rotationY += Input.GetAxis("Mouse X");
 
-        rotationX = Mathf.Clamp(rotationX, cameraMinConstraint, cameraMaxConstraint);
+        rotationX = Mathf.Clamp(rotationX, cameraMinConstraintX, cameraMaxConstraintX);
+        rotationY = Mathf.Clamp(rotationY, cameraMinConstraintY, cameraMaxConstraintY);
 
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
 
