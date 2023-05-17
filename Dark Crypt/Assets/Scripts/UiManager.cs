@@ -9,6 +9,8 @@ public class UiManager : MonoBehaviour
     public GameObject gameOver;
     public TextMeshProUGUI winLoseText;
 
+    public bool zombieCanMove = true;
+
     public static UiManager instance;
 
     private void Awake()
@@ -33,6 +35,7 @@ public class UiManager : MonoBehaviour
 
     public void PlayAgain()
     {
+        zombieCanMove= false;
         SceneManager.LoadScene("TheCrypt");
     }
 

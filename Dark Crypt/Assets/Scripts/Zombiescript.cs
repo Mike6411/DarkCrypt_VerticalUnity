@@ -33,28 +33,30 @@ public class Zombiescript : MonoBehaviour
 
     private void Update()
     {
-
-        //Chase Check
-        if(Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+        if (UiManager.instance.zombieCanMove)
         {
-            ChasePlayer();
-        }
-        else if (isChasing)
-        {
-            WalkToRandomSpot();
-        }
-
-        if(isRoaming) 
-        { 
-            if(Vector3.Distance(transform.position, randomPos) <= 1)
+            //Chase Check
+            if (Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
+            {
+                ChasePlayer();
+            }
+            else if (isChasing)
             {
                 WalkToRandomSpot();
             }
-        }
 
-        if(Vector3.Distance(transform.position, player.transform.position) <= 1)
-        {
-            anim.SetTrigger("attack");
+            if (isRoaming)
+            {
+                if (Vector3.Distance(transform.position, randomPos) <= 1)
+                {
+                    WalkToRandomSpot();
+                }
+            }
+
+            if (Vector3.Distance(transform.position, player.transform.position) <= 1)
+            {
+                anim.SetTrigger("attack");
+            }
         }
     }
 
@@ -64,6 +66,8 @@ public class Zombiescript : MonoBehaviour
 
         if(!isChasing)
         {
+            detectedFX.volume = Random.Range(0.8f, 1);
+            detectedFX.pitch = Random.Range(0.8f, 1);
             detectedFX.Play();
             isChasing = true;
             isRoaming = false;

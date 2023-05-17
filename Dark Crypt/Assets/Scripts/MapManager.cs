@@ -19,6 +19,12 @@ public class MapManager : MonoBehaviour
 
     public static MapManager instance;
 
+    [SerializeField]
+    private int gemsTotal;
+
+    [SerializeField]
+    private int gemsRemaining;
+
     private void Awake()
     {
         if(instance == null) 
@@ -80,17 +86,29 @@ public class MapManager : MonoBehaviour
 
     private void GenerateGems()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < gemsTotal; i++)
         {
             int index = Random.Range(0, openPositions.Count);
             Instantiate(gemPrefab, openPositions[index], Quaternion.identity);
             openPositions.RemoveAt(index);
         }
+
+        gemsRemaining = gemsTotal;
     }
 
     public Vector3 GetRandomPos()
     {
         return openPositions[Random.Range(0, openPositions.Count)];
+    }
+
+    public void GemPickedUp()
+    {
+        gemsRemaining--;
+
+        if(gemsRemaining == 0)
+        {
+            UiManager.instance.ShowGameOver(true);
+        }
     }
 
 }

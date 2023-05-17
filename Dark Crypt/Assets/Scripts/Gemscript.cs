@@ -19,6 +19,7 @@ public class Gemscript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AudioManager.instance.PlaySFX(pickupSFX);
+            MapManager.instance.GemPickedUp();
             Destroy(gameObject);
         }
     }
