@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8974232953727806508, guid: 6cd11cefda1cf0b4bbed3b2c6356381f, type: 3}
+      propertyPath: ScreamSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fc923a0ada62dc4d9cc3ee2a949b476, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd11cefda1cf0b4bbed3b2c6356381f, type: 3}
 --- !u!1001 &2207101506534262683

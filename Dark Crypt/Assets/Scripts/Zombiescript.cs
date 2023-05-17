@@ -15,15 +15,18 @@ public class Zombiescript : MonoBehaviour
     [SerializeField]
     private AudioSource detectedFX;
 
+    private Animator anim;
+
     private NavMeshAgent agent;
     private bool isChasing;
     private bool isRoaming;
 
     private void Start()
     {
-        randomPos= transform.position;
+        randomPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         isChasing = false;
         isRoaming = true;
     }
@@ -48,6 +51,11 @@ public class Zombiescript : MonoBehaviour
                 WalkToRandomSpot();
             }
         }
+
+        if(Vector3.Distance(transform.position, player.transform.position) <= 1)
+        {
+            anim.SetTrigger("attack");
+        }
     }
 
     private void ChasePlayer()
@@ -60,7 +68,10 @@ public class Zombiescript : MonoBehaviour
             isChasing = true;
             isRoaming = false;
             agent.speed = 2;
+
             //trigger anims
+            anim.SetBool("isRunning", isChasing);
+            anim.SetBool("isWalking", isRoaming);
         }
     }
 
@@ -75,5 +86,7 @@ public class Zombiescript : MonoBehaviour
         isRoaming= true;
 
         //trigger anims
+        anim.SetBool("isRunning", isChasing);
+        anim.SetBool("isWalking", isRoaming);
     }
 }

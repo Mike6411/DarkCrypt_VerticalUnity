@@ -9,6 +9,9 @@ public class Playerscript : MonoBehaviour
     private CharacterController characterController;
     private Animator animator;
 
+    [SerializeField]
+    private AudioClip ScreamSFX;
+
     private bool isMoving;
 
     private float horizontalMovement;
@@ -73,6 +76,7 @@ public class Playerscript : MonoBehaviour
         if (other.CompareTag("Zombie"))
         {
             canMove= false;
+            AudioManager.instance.PlaySFX(ScreamSFX);
             animator.SetTrigger("IsDead");
         }
     }
