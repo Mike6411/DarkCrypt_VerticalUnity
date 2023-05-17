@@ -18,6 +18,8 @@ public class Playerscript : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
+    private bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,11 @@ public class Playerscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovementCheck();
-        AnimationCheck();
+        if (canMove)
+        {
+            MovementCheck();
+            AnimationCheck();
+        }
     }
 
     void MovementCheck()
@@ -60,6 +65,15 @@ public class Playerscript : MonoBehaviour
         {
             isMoving = false;
             animator.SetBool("isRunning", isMoving);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Zombie"))
+        {
+            canMove= false;
+            animator.SetTrigger("IsDead");
         }
     }
 }
