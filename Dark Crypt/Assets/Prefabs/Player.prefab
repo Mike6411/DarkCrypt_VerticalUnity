@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  ScreamSFX: {fileID: 8300000, guid: 1fc923a0ada62dc4d9cc3ee2a949b476, type: 3}
   turnSmoothTime: 0.1
 --- !u!81 &8974232953727709263
 AudioListener:
@@ -1231,9 +1232,37 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4830486759774294941, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830486759774294941, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.8039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096058332932904098, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3537736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096058332932904098, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8030596
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096058332932904098, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096058332932904098, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 0.21
+      objectReference: {fileID: 0}
     - target: {fileID: 7096058332932904098, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096058332932904098, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9049f0beb1468de459bb780a314cc060, type: 3}
