@@ -17,13 +17,13 @@ public class MapManager : MonoBehaviour
 
     private Color wallColor = Color.black;
 
-    public static MapManager instanceMapManager;
+    public static MapManager instance;
 
     private void Awake()
     {
-        if(instanceMapManager == null) 
+        if(instance == null) 
         {
-            instanceMapManager = this;
+            instance = this;
         }
         else { Destroy(gameObject); }
     }

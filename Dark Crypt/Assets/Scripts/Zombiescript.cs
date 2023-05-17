@@ -78,7 +78,7 @@ public class Zombiescript : MonoBehaviour
     private void WalkToRandomSpot()
     {
         agent.speed = 0.75f;
-        randomPos = MapManager.instanceMapManager.GetRandomPos();
+        randomPos = MapManager.instance.GetRandomPos();
 
         agent.SetDestination(randomPos);
 

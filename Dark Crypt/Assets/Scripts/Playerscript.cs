@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Playerscript : MonoBehaviour
@@ -76,6 +77,7 @@ public class Playerscript : MonoBehaviour
         if (other.CompareTag("Zombie"))
         {
             canMove= false;
+            UiManager.instance.ShowGameOver(false);
             AudioManager.instance.PlaySFX(ScreamSFX);
             animator.SetTrigger("IsDead");
         }
