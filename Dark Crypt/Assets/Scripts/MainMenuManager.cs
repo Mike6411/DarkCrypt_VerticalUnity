@@ -22,6 +22,21 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("TheCrypt");
     }
 
+    public void Options()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void quitGame () 
     {
         Application.Quit();
