@@ -39,4 +39,9 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene("TheCrypt");
     }
 
+    public void StartPlaying()
+    {
+        SceneManager.LoadScene("TheCrypt");
+    }
+
 }
