@@ -19,6 +19,8 @@ public class MapManager : MonoBehaviour
 
     public static MapManager instance;
 
+    public static int mapInteger=0;
+
     [SerializeField]
     private int gemsTotal;
 
@@ -32,6 +34,7 @@ public class MapManager : MonoBehaviour
             instance = this;
         }
         else { Destroy(gameObject); }
+
     }
 
     private void Start()
@@ -46,7 +49,7 @@ public class MapManager : MonoBehaviour
         //limpiar el mapa anterior
         openPositions.Clear();
 
-        selectedMap = maps[Random.Range(0, maps.Length)];
+        selectedMap = maps[mapInteger];
 
         for (int x = 0; x < selectedMap.width; x++)
         {
@@ -108,6 +111,7 @@ public class MapManager : MonoBehaviour
         if(gemsRemaining == 0)
         {
             UiManager.instance.ShowGameOver(true);
+            mapInteger++;
         }
     }
 

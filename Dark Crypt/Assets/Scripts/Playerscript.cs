@@ -77,6 +77,7 @@ public class Playerscript : MonoBehaviour
         if (other.CompareTag("Zombie"))
         {
             canMove= false;
+            MapManager.mapInteger = 0;
             UiManager.instance.ShowGameOver(false);
             AudioManager.instance.PlaySFX(ScreamSFX);
             animator.SetTrigger("IsDead");

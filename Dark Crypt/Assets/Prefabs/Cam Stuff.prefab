@@ -182,7 +182,8 @@ PrefabInstance:
       propertyPath: m_AllowDynamicResolution
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8127094, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c195c3b676bf4042af068f3f899873d, type: 3}
 --- !u!1 &6455394943895761709 stripped
 GameObject:
